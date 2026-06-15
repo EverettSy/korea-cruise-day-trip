@@ -1,0 +1,6 @@
+name = "korea-cruise-day-trip"
+pages_build_output_dir = "public"
+compatibility_date = "2026-06-15"
+
+[assets]
+directory = "./public"

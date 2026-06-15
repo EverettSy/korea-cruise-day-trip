@@ -1,0 +1,12 @@
+{
+  "name": "korea-cruise-day-trip",
+  "version": "1.0.0",
+  "private": true,
+  "description": "韩国邮轮靠岸一日游离线图文手册的 Cloudflare Pages 静态部署项目。",
+  "scripts": {
+    "build": "node build-conversation-guide.mjs",
+    "preview": "npx --yes wrangler pages dev public",
+    "pages:deploy": "npx --yes wrangler pages deploy public",
+    "deploy": "npx --yes wrangler deploy"
+  }
+}
