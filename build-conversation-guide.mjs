@@ -164,7 +164,8 @@ const html = `<!doctype html>
     .leaflet-popup-content { margin: 12px 14px; min-width: 180px; }
     .popup-title { font-weight: 900; margin-bottom: 4px; }
     .popup-time { color: var(--sea); font-weight: 800; margin-bottom: 8px; }
-    .popup-link { display: inline-block; margin-top: 8px; border-radius: 999px; padding: 7px 10px; background: var(--deep); color: #fff; text-decoration: none; font-weight: 800; }
+    .popup-link { display: inline-block; margin: 8px 5px 0 0; border-radius: 999px; padding: 7px 10px; background: var(--deep); color: #fff; text-decoration: none; font-weight: 800; }
+    .popup-link.naver-link { background: #03c75a; }
     .day { padding: 0; background: #fff; }
     .day-cover {
       min-height: 360px;
@@ -188,6 +189,7 @@ const html = `<!doctype html>
     .quote { margin-top: 8px; color: var(--muted); font-size: 14px; }
     .navlinks { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
     .navlinks a { border-radius: 999px; padding: 7px 10px; background: #edf5f5; color: var(--deep); text-decoration: none; font-size: 13px; font-weight: 850; }
+    .navlinks .naver-link { background: #e8f9ef; color: #087a3b; }
     .timeline { margin-top: 22px; display: grid; gap: 10px; }
     .slot { display: grid; grid-template-columns: 78px 1fr; border: 1px solid rgba(83,104,126,.18); border-radius: 8px; overflow: hidden; background: #fff; }
     .slot-time { display: grid; place-items: center; padding: 12px 8px; background: #edf5f5; color: var(--sea); font-weight: 950; text-align: center; }
@@ -436,6 +438,10 @@ const html = `<!doctype html>
       return "https://map.kakao.com/link/to/" + encodeURIComponent(p.name) + "," + p.lat + "," + p.lng;
     }
 
+    function naverNav(p) {
+      return "https://map.naver.com/p/search/" + encodeURIComponent(p.name);
+    }
+
     const map = L.map("map", { scrollWheelZoom: false });
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       maxZoom: 19,
@@ -467,7 +473,8 @@ const html = `<!doctype html>
           '<div class="popup-title">' + p.n + '. ' + p.name + '</div>' +
           '<div class="popup-time">' + p.time + '</div>' +
           '<div>' + p.note + '</div>' +
-          '<a class="popup-link" href="' + googleNav(p) + '" target="_blank" rel="noopener">打开导航</a>'
+          '<a class="popup-link" href="' + googleNav(p) + '" target="_blank" rel="noopener">Google</a>' +
+          '<a class="popup-link naver-link" href="' + naverNav(p) + '" target="_blank" rel="noopener">NAVER Map</a>'
         );
       });
       map.fitBounds(line.getBounds(), { padding: [30, 30] });
@@ -483,7 +490,8 @@ const html = `<!doctype html>
 function navLinks(point) {
   const google = `https://www.google.com/maps/dir/?api=1&destination=${point.lat},${point.lng}`;
   const kakao = `https://map.kakao.com/link/to/${encodeURIComponent(point.name)},${point.lat},${point.lng}`;
-  return `<div class="navlinks"><a href="${google}" target="_blank" rel="noopener">Google 导航</a><a href="${kakao}" target="_blank" rel="noopener">Kakao 导航</a></div>`;
+  const naver = `https://map.naver.com/p/search/${encodeURIComponent(point.name)}`;
+  return `<div class="navlinks"><a class="naver-link" href="${naver}" target="_blank" rel="noopener">NAVER Map</a><a href="${kakao}" target="_blank" rel="noopener">Kakao 导航</a><a href="${google}" target="_blank" rel="noopener">Google 导航</a></div>`;
 }
 
 function placeCard(name, img, rating, quote, time, korean, point) {
