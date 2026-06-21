@@ -30,20 +30,20 @@ const images = {
 };
 
 const busanPoints = [
-  { n: 1, time: "6月22日 09:00", name: "釜山港国际客运码头", lat: 35.1148, lng: 129.0488, note: "2026年6月22日釜山靠岸，靠岸窗口 07:00-18:00，下船集合后确认最晚回船时间。" },
-  { n: 2, time: "09:40-11:10", name: "松岛海上缆车", lat: 35.07619, lng: 129.01803, note: "水晶车厢看海，票价约 24,000 韩元。" },
-  { n: 3, time: "12:00-13:20", name: "田浦洞肉合家烤肉", lat: 35.1577, lng: 129.0632, note: "午餐吃烤肉，热门时段先取号。" },
-  { n: 4, time: "13:20-14:30", name: "田浦洞逛街", lat: 35.1588, lng: 129.0648, note: "咖啡、小店、服饰，控制停留时间。" },
-  { n: 5, time: "15:10-16:30", name: "甘川文化村", lat: 35.0975, lng: 129.0107, note: "彩色山坡村落，上下坡多。" },
-  { n: 6, time: "6月22日 16:30", name: "返回釜山港", lat: 35.1148, lng: 129.0488, note: "2026年6月22日釜山 18:00 离港，建议至少提前 1.5 小时回到码头。" },
+  { n: 1, time: "6月22日 09:00", name: "釜山港国际客运码头", mapName: "부산항국제여객터미널", lat: 35.1148, lng: 129.0488, note: "2026年6月22日釜山靠岸，靠岸窗口 07:00-18:00，下船集合后确认最晚回船时间。" },
+  { n: 2, time: "09:40-11:10", name: "松岛海上缆车", mapName: "송도해상케이블카", lat: 35.07619, lng: 129.01803, note: "水晶车厢看海，票价约 24,000 韩元。" },
+  { n: 3, time: "12:00-13:20", name: "田浦洞肉合家烤肉", mapName: "육합가 전포점", lat: 35.1577, lng: 129.0632, note: "午餐吃烤肉，热门时段先取号。" },
+  { n: 4, time: "13:20-14:15", name: "田浦洞逛街", mapName: "전포카페거리", lat: 35.1588, lng: 129.0648, note: "咖啡、小店、服饰，控制在约 55 分钟。" },
+  { n: 5, time: "15:00-16:00", name: "甘川文化村", mapName: "감천문화마을", lat: 35.0975, lng: 129.0107, note: "彩色山坡村落，上下坡多；16:00 必须开始回船。" },
+  { n: 6, time: "16:00出发 / 16:30前抵港", name: "返回釜山港", mapName: "부산항국제여객터미널", lat: 35.1148, lng: 129.0488, note: "2026年6月22日釜山 18:00 离港，目标是至少提前 1.5 小时抵达码头。" },
 ];
 
 const jejuPoints = [
-  { n: 1, time: "6月21日 09:00", name: "济州港/邮轮码头", lat: 33.5198, lng: 126.5432, note: "2026年6月21日济州靠岸，靠岸窗口 07:00-18:00，Kakao T 叫车并确认回船时间。" },
-  { n: 2, time: "10:00-11:10", name: "柱状节理带", lat: 33.2379, lng: 126.4252, note: "火山岩柱状地貌，上午看海更舒服。" },
-  { n: 3, time: "11:20-12:30", name: "橘子咖啡馆", lat: 33.2498, lng: 126.5588, note: "搜索西归浦/中门附近橘子咖啡馆，可替换店名。" },
-  { n: 4, time: "12:50-14:30", name: "西归浦每日偶来市场", lat: 33.2486, lng: 126.5643, note: "午餐、小吃和伴手礼一起解决。" },
-  { n: 5, time: "6月21日 16:00", name: "返回济州港/邮轮码头", lat: 33.5198, lng: 126.5432, note: "2026年6月21日济州 18:00 离港，车程较长，务必提前出发。" },
+  { n: 1, time: "6月21日 09:00", name: "济州港/邮轮码头", mapName: "강정크루즈터미널", lat: 33.5198, lng: 126.5432, note: "2026年6月21日济州靠岸，靠岸窗口 07:00-18:00，Kakao T 叫车并确认回船时间。" },
+  { n: 2, time: "10:00-11:10", name: "柱状节理带", mapName: "대포주상절리대", lat: 33.2379, lng: 126.4252, note: "火山岩柱状地貌，上午看海更舒服。" },
+  { n: 3, time: "11:20-12:30", name: "橘子咖啡馆", mapName: "제주 귤 카페", lat: 33.2498, lng: 126.5588, note: "搜索西归浦/中门附近橘子咖啡馆，可替换店名。" },
+  { n: 4, time: "12:50-14:30", name: "西归浦每日偶来市场", mapName: "서귀포매일올레시장", lat: 33.2486, lng: 126.5643, note: "午餐、小吃和伴手礼一起解决。" },
+  { n: 5, time: "6月21日 16:00", name: "返回济州港/邮轮码头", mapName: "강정크루즈터미널", lat: 33.5198, lng: 126.5432, note: "2026年6月21日济州 18:00 离港，车程较长，务必提前出发。" },
 ];
 
 const allMapData = { busan: busanPoints, jeju: jejuPoints };
@@ -336,7 +336,7 @@ const html = `<!doctype html>
           </div>
         </div>
         <div id="map"></div>
-        <p class="map-tip">导航链接优先使用 Google Maps 通用链接；Kakao Map 链接适合手机已安装 Kakao 系列 App 时打开。</p>
+        <p class="map-tip">NAVER Map、Kakao Map 与 Google Maps 均使用韩语地点名，匹配韩国本地地点更准确。</p>
       </section>
 
       <section class="day" id="busan">
@@ -358,8 +358,8 @@ const html = `<!doctype html>
           <h2 style="margin-top:26px;">早中晚时间线</h2>
           <div class="timeline">
             ${slot("早", "09:00-11:10", "下船 → 松岛海上缆车", "打车最省时间；水晶车厢票价约 24,000 韩元。")}
-            ${slot("中", "12:00-14:30", "田浦洞肉合家烤肉 + 逛街", "午餐后逛咖啡馆和服饰小店，控制停留不超过 1 小时。")}
-            ${slot("晚", "15:10-16:30+", "甘川文化村 → 回船", "村落上下坡多，拍照后立刻按船方时间回码头。")}
+            ${slot("中", "12:00-14:15", "田浦洞肉合家烤肉 + 逛街", "午餐后逛咖啡馆和服饰小店，14:15 前离开田浦洞。")}
+            ${slot("晚", "15:00-16:30", "甘川文化村 → 回船", "16:00 必须离开甘川，目标 16:30 前抵达码头，为 18:00 离港保留 1.5 小时。")}
           </div>
 
           <h2 style="margin-top:26px;">今日当地食物</h2>
@@ -431,15 +431,15 @@ const html = `<!doctype html>
     const routes = ${JSON.stringify(allMapData)};
 
     function googleNav(p) {
-      return "https://www.google.com/maps/dir/?api=1&destination=" + p.lat + "," + p.lng;
+      return "https://www.google.com/maps/dir/?api=1&destination=" + encodeURIComponent(p.mapName || p.name);
     }
 
     function kakaoNav(p) {
-      return "https://map.kakao.com/link/to/" + encodeURIComponent(p.name) + "," + p.lat + "," + p.lng;
+      return "https://map.kakao.com/?q=" + encodeURIComponent(p.mapName || p.name);
     }
 
     function naverNav(p) {
-      return "https://map.naver.com/p/search/" + encodeURIComponent(p.name);
+      return "https://map.naver.com/p/search/" + encodeURIComponent(p.mapName || p.name);
     }
 
     const map = L.map("map", { scrollWheelZoom: false });
@@ -470,7 +470,7 @@ const html = `<!doctype html>
           iconAnchor: [15, 15]
         });
         L.marker([p.lat, p.lng], { icon }).addTo(layerGroup).bindPopup(
-          '<div class="popup-title">' + p.n + '. ' + p.name + '</div>' +
+          '<div class="popup-title">' + p.n + '. ' + p.name + '<br><small>' + (p.mapName || p.name) + '</small></div>' +
           '<div class="popup-time">' + p.time + '</div>' +
           '<div>' + p.note + '</div>' +
           '<a class="popup-link" href="' + googleNav(p) + '" target="_blank" rel="noopener">Google</a>' +
@@ -488,9 +488,10 @@ const html = `<!doctype html>
 </html>`;
 
 function navLinks(point) {
-  const google = `https://www.google.com/maps/dir/?api=1&destination=${point.lat},${point.lng}`;
-  const kakao = `https://map.kakao.com/link/to/${encodeURIComponent(point.name)},${point.lat},${point.lng}`;
-  const naver = `https://map.naver.com/p/search/${encodeURIComponent(point.name)}`;
+  const mapName = point.mapName || point.name;
+  const google = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(mapName)}`;
+  const kakao = `https://map.kakao.com/?q=${encodeURIComponent(mapName)}`;
+  const naver = `https://map.naver.com/p/search/${encodeURIComponent(mapName)}`;
   return `<div class="navlinks"><a class="naver-link" href="${naver}" target="_blank" rel="noopener">NAVER Map</a><a href="${kakao}" target="_blank" rel="noopener">Kakao 导航</a><a href="${google}" target="_blank" rel="noopener">Google 导航</a></div>`;
 }
 
